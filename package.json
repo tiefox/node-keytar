@@ -11,7 +11,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/atom/node-keytar.git"
+    "url": "https://github.com/mongodb-js/node-keytar.git"
   },
   "bugs": {
     "url": "https://github.com/atom/node-keytar/issues"
@@ -27,8 +27,12 @@
     "credential vault"
   ],
   "scripts": {
+    "install": "prebuild --download",
+    "rebuild": "prebuild --compile",
+    "prebuild": "prebuild --verbose --strip",
     "prepublish": "grunt clean coffee lint",
-    "test": "grunt test"
+    "test": "grunt test",
+    "ci": "npm run prebuild && npm test"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
@@ -41,6 +45,7 @@
     "grunt-coffeelint": "0.0.6"
   },
   "dependencies": {
-    "nan": "^2.0.0"
+    "nan": "^2.0.0",
+    "prebuild": "^2.6.2"
   }
 }
