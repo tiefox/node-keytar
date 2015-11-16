@@ -1,5 +1,4 @@
 {
-  "main": "./lib/keytar.js",
   "name": "keytar",
   "description": "Bindings to native Mac/Linux/Windows password APIs",
   "version": "3.0.0",
@@ -27,22 +26,23 @@
     "credential vault"
   ],
   "scripts": {
+    "fmt": "mongodb-js-fmt",
+    "check-js": "mongodb-js-precommit",
+    "check-cpp": "./node_modules/.bin/node-cpplint --verbose src/*.cc",
+    "check": "npm run check-cpp && npm run check-js",
     "install": "prebuild --download",
     "rebuild": "prebuild --compile",
     "prebuild": "prebuild --verbose --strip",
-    "prepublish": "grunt clean coffee lint",
-    "test": "grunt test",
-    "ci": "npm run prebuild && npm test"
+    "test": "mocha",
+    "ci": "npm run build && npm test"
   },
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-coffee": "~0.9.0",
-    "grunt-cli": "~0.1.7",
-    "grunt-shell": "~0.2.2",
-    "jasmine-focused": "~1.x",
-    "rimraf": "~2.1.4",
+    "eslint-config-mongodb-js": "^1.0.6",
+    "mocha": "^2.3.4",
+    "mongodb-js-fmt": "0.0.3",
+    "mongodb-js-precommit": "^0.2.8",
     "node-cpplint": "~0.1.5",
-    "grunt-coffeelint": "0.0.6"
+    "rimraf": "~2.1.4"
   },
   "dependencies": {
     "nan": "^2.0.0",

@@ -1,6 +1,10 @@
-/build
-/spec
-*.coffee
+build/
+test/
+.DS_Store
+.eslintrc
+.jsfmtrc
+.travis.yml
+appveyor.yml
 *.log
 *~
 .node-version
