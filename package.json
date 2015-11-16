@@ -34,7 +34,7 @@
     "rebuild": "prebuild --compile",
     "prebuild": "prebuild --verbose --strip",
     "test": "mocha",
-    "ci": "npm run build && npm test"
+    "ci": "npm build . && npm test"
   },
   "devDependencies": {
     "eslint-config-mongodb-js": "^1.0.6",
