@@ -30,9 +30,9 @@
     "check-js": "mongodb-js-precommit",
     "check-cpp": "./node_modules/.bin/node-cpplint --verbose src/*.cc",
     "check": "npm run check-cpp && npm run check-js",
-    "install": "prebuild --download",
-    "rebuild": "prebuild --compile",
-    "prebuild": "prebuild --verbose --strip",
+    "install": "./node_modules/.bin/prebuild --download --verbose",
+    "rebuild": "./node_modules/.bin/prebuild --compile --verbose",
+    "prebuild": "./node_modules/.bin/prebuild --verbose",
     "test": "mocha",
     "ci": "npm build . && npm test"
   },
