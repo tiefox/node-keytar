@@ -34,7 +34,7 @@
     "rebuild": "./node_modules/.bin/prebuild --compile --verbose",
     "prebuild": "./node_modules/.bin/prebuild --verbose",
     "test": "mocha",
-    "ci": "npm build . && npm test"
+    "ci": "npm build . --verbose && npm test"
   },
   "devDependencies": {
     "eslint-config-mongodb-js": "^1.0.6",
