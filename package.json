@@ -30,14 +30,14 @@
     "check-js": "mongodb-js-precommit",
     "check-cpp": "./node_modules/.bin/node-cpplint --verbose src/*.cc",
     "check": "npm run check-cpp && npm run check-js",
-    "install": "./node_modules/.bin/prebuild --download --verbose",
-    "rebuild": "./node_modules/.bin/prebuild --compile --verbose",
-    "prebuild": "./node_modules/.bin/prebuild --verbose",
+    "_install": "./node_modules/.bin/prebuild --download --verbose",
+    "_rebuild": "./node_modules/.bin/prebuild --compile --verbose",
+    "_prebuild": "./node_modules/.bin/prebuild --verbose",
     "test-node": "mocha",
     "test-main": "electron-mocha",
     "test-renderer": "electron-mocha --renderer",
     "test": "npm run test-node && npm run test-main && npm run test-renderer",
-    "ci": "npm build . --verbose && npm test"
+    "ci": "npm run check && npm test"
   },
   "devDependencies": {
     "electron-mocha": "^0.6.1",
