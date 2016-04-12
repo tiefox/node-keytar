@@ -43,9 +43,9 @@
     "pretest-node": "node-pre-gyp rebuild",
     "test-node": "mocha",
     "pretest-electron": "npm run build-electron",
-    "test-electron": "electron-mocha",
+    "test-electron": "xvfb-maybe electron-mocha",
     "test": "npm run test-node && npm run test-electron",
-    "ci": "xvfb-maybe npm test",
+    "ci": "npm test",
     "publish-node": "node-pre-gyp build package publish info --loglevel info",
     "publish-electron": "cross-env HOME=./.electron-gyp npm_config_disturl=https://atom.io/download/atom-shell node-pre-gyp build package publish info --target=0.37.4 --runtime=electron --loglevel info"
   },
