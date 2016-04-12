@@ -1,18 +1,12 @@
 var keytar = require('../');
 var assert = require('assert');
 
-describe('keytar', function() {
+describe.skip('keytar', function() {
   var service = 'keytar tests';
   var account = 'buster';
   var password = 'secret';
   var account2 = 'buster2';
   var password2 = 'secret2';
-
-  before(function() {
-    if (process.platform === 'linux') {
-      return this.skip();
-    }
-  });
 
   beforeEach(function() {
     keytar.deletePassword(service, account);
