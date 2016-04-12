@@ -9,7 +9,7 @@ describe('keytar', function() {
   var password2 = 'secret2';
 
   before(function() {
-    if (process.env.TRAVIS || process.env.EVERGREEN) {
+    if (process.platform === 'linux') {
       return this.skip();
     }
   });
