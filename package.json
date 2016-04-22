@@ -38,7 +38,7 @@
     "check-js": "mongodb-js-precommit",
     "check-cpp": "node-cpplint src/*.cc --verbose",
     "check": "npm run check-cpp && npm run check-js",
-    "install": "node ./node_modules/.bin/node-pre-gyp install --fallback-to-build",
+    "install": "node-pre-gyp install --fallback-to-build",
     "build-electron": "cross-env HOME=./.electron-gyp npm_config_disturl=https://atom.io/download/atom-shell node-pre-gyp rebuild package --target=0.36.12 --runtime=electron",
     "pretest-node": "node-pre-gyp rebuild",
     "test-node": "mocha",
