@@ -4,5 +4,4 @@ build/
 *.log
 *~
 .node-version
-lib/binding
 .electron-gyp
