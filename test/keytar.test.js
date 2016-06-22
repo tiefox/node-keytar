@@ -7,6 +7,8 @@ describe.skip('keytar', function() {
   var password = 'secret';
   var account2 = 'buster2';
   var password2 = 'secret2';
+  var commonName= 'commonName';
+  var passphrase= 'test passphrase';
 
   beforeEach(function() {
     keytar.deletePassword(service, account);
@@ -49,6 +51,13 @@ describe.skip('keytar', function() {
       assert.equal(keytar.addPassword(service, account2, password2), true);
       found = keytar.findPassword(service);
       assert([password, password2].indexOf(found) > -1);
+    });
+  });
+  describe('findIdentity(commonName,passphrase)', function() {
+    it('returns a password of the service', function() {
+      var found;
+      found = keytar.findIdentity(commonName, passphrase);
+      assert(found !== '');
     });
   });
 });
