@@ -60,5 +60,17 @@ module.exports = {
     }
 
     return binding.findPassword(service);
+  },
+
+  findIdentity: function(commonName, passphrase) {
+    if (!commonName) {
+      throw new TypeError('CommonName is required.');
+    }
+        if (!passphrase) {
+      throw new TypeError('Passphrase is required.');
+    }
+
+    return binding.findIdentity(commonName, passphrase);
   }
+
 };

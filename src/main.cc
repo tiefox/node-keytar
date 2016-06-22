@@ -48,11 +48,27 @@ NAN_METHOD(FindPassword) {
   }
 }
 
+NAN_METHOD(FindIdentity) {
+  Nan::HandleScope scope;
+  std::string pkcs12data;
+  bool success = keytar::FindIdentity(*String::Utf8Value(info[0]),
+                                      *String::Utf8Value(info[1]),
+                                      &pkcs12data);
+  if (success) {
+    Local<String> val =
+      Nan::New<String>(pkcs12data.data(), pkcs12data.length()).ToLocalChecked();
+      info.GetReturnValue().Set(val);
+  } else {
+    info.GetReturnValue().Set(Nan::Null());
+  }
+}
+
 void Init(Handle<Object> exports) {
   Nan::SetMethod(exports, "getPassword", GetPassword);
   Nan::SetMethod(exports, "addPassword", AddPassword);
   Nan::SetMethod(exports, "deletePassword", DeletePassword);
   Nan::SetMethod(exports, "findPassword", FindPassword);
+  Nan::SetMethod(exports, "findIdentity", FindIdentity);
 }
 
 }  // namespace
